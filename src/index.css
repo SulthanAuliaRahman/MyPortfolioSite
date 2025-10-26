@@ -51,7 +51,7 @@
   }
   @keyframes meteor {
     0% {
-      transform: rotate(235deg) translateX(0); i want random
+      transform: rotate(235deg) translateX(0);
       opacity: 1;
     }
     70% {
