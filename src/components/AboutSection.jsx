@@ -15,8 +15,8 @@ export const AboutSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap 12 items-center">
           <div className="space-y-6">
-            <h3>Passionate Web Developer</h3>
-            <p className="text-muted-foreground">Lorem Ipsum Dolor Sit amet</p>
+            <h3>Passionate Developer with many intrest</h3>
+            <p className="text-muted-foreground">Currently im intrested in WebDev, gamedev and AI</p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
               <a href="#contact" className="cosmic-button">
@@ -64,7 +64,7 @@ export const AboutSection = () => {
                 </div>
                 <div className="text-left">
                   <h4 className="font-semibold text-lg">Passion</h4>
-                  <p>Passionate about Web Development and GameDev</p>
+                  <p>Passionate about Web Development, GameDev and AI</p>
                 </div>
               </div>
             </div>

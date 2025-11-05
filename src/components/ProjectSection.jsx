@@ -1,41 +1,74 @@
 import { ArrowRight, ExternalLink, Github } from "lucide-react";
-
+import { useState } from "react";
+import{cn} from"@/lib/utils";
 const projects = [
   {
     id: 1,
-    title: "SaaS Landing Page",
-    description: "A beautiful landing page app using React and Tailwind.",
-    image: "/projects/bayarair.png",
+    title: "Bayar Air",
+    description: "Aplikasi Pencatatan Air Artesis",
+    image: "/projects/bayarair/bayarair1.png",
     tags: ["Laravel", "Kotlin/Gradle", "Bootstrap"],
     demoUrl: "#",
     githubUrl: "#",
+    category: "MobileApp",
   },
   {
     id: 2,
-    title: "Orbit Analytics Dashboard",
-    description:
-      "Interactive analytics dashboard with data visualization and filtering capabilities.",
-    image: "/projects/lahkerja.png",
+    title: "Lah-Kerja",
+    description: "Sistem Manajemen sumberdaya manusia",
+    image: "/projects/lahkerja/lahkerja1.png",
     tags: ["Laravel", "TailwindCSS", "Javascript"],
     demoUrl: "#",
     githubUrl: "#",
+    category: "WebApp",
   },
   {
     id: 3,
-    title: "E-commerce Platform",
-    description:
-      "Full-featured e-commerce platform with user authentication and payment processing.",
-    image: "/projects/sspm1.png",
+    title: "Sistem Surat Pemberiitahuan massa (SSPM)",
+    description: "Sistem Pembantu Pencatatan Pajak ",
+    image: "/projects/sspm/sspm1.png",
     tags: ["Laravel", "MySQL", "Javascript"],
     demoUrl: "#",
-    githubUrl: "#",
+    githubUrl: "",
+    category: "WebApp",
+  },
+
+  {
+    id: 4,
+    title: "Automated Testing Atisisbada using selenium",
+    description: "Automated Testing untuk aplikasi Atisisbada",
+    image: "/projects/atisisbada/atisisbada1.png",
+    tags: ["Selenium", "Python"],
+    demoUrl: "#",
+    githubUrl: "",
+    category: "Other",
+  },
+
+  {
+    id: 5,
+    title: "Deteksi Objek Sederhana ",
+    description: "Deteksi Objek Sederhana menggunakan Yolo dan PyTorch untuk mendeteksi dummy,korban dan saya",
+    image: "/projects/AI/simpleobjectdetection.png",
+    tags: ["Python","PyTorch","Ultralytics YOLO"],
+    demoUrl: "#",
+    githubUrl: "",
+    category: "Other",
   },
 ];
+
+const categories = ["all", "WebApp", "MobileApp", "Other"];
 
 // TODO: Tambahkan fitur filter berdasarkan Personal Atau Work Project
 // TODO: Buat kan Github dan demoURL nya jadi optional, kalo gaada ga usah ditampilin iconnya
 
 export const ProjectSection = () => {
+  const [activeCategory, setActiveCategory] = useState("all");
+
+  const filteredProject = projects.filter(
+    (projects) =>
+      activeCategory === "all" || projects.category === activeCategory
+  );
+
   return (
     <section id="projects" className="py-24 px-4 relative">
       <div className="container mx-auto max-w-5xl">
@@ -45,13 +78,28 @@ export const ProjectSection = () => {
         </h2>
 
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Here are some of the recent projects I have been working on. Each
-          project was carefully crafted with attention to detail, performance,
-          and user experience.
+          Here are some of the recent projects I have been working on.
         </p>
 
+        <div className="flex flex-wrap justify-center gap-4 mb-12">
+          {categories.map((category, key) => (
+            <button
+              key={key}
+              onClick={() => setActiveCategory(category)}
+              className={cn(
+                "px-5 py-2 rounded-full transition-colors duration-300 capitalize",
+                activeCategory === category
+                  ? "bg-primary text-primary-foreground"
+                  : "bg-secondary/70 text-forefround hover:bd-secondary"
+              )}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project) => (
+          {filteredProject.map((project) => (
             <div
               key={project.id}
               className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover"
