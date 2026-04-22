@@ -52,7 +52,7 @@ export const ContactSection = () => {
                     href="@"
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
-                    +62 0#############
+                    +62 85860631381
                   </a>
                 </div>
               </div>
