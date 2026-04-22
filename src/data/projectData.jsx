@@ -82,10 +82,10 @@ export const projects = [
     shortDescription: "Content Management for Atisisbada Software",
     longDescription:
       "A Content Management System built to manage landing page content and public information of the Atisisbada Application. Allows non-technical teams to update content independently through an intuitive interface.",
-    imageThumbnail: "public/projects/atisisbadaCMS/Home.png",
+    imageThumbnail: "projects/atisisbadaCMS/Home.png",
     imageGallery: [
-      "public/projects/atisisbadaCMS/Home.png",
-      "public/projects/atisisbadaCMS/Instagram.png",
+      "projects/atisisbadaCMS/Home.png",
+      "projects/atisisbadaCMS/Instagram.png",
     ],
     tags: ["Next.js", "React"],
     appUrl: "https://dev-atis-landingpage.atisisbada.id/",
